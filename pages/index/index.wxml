@@ -1,0 +1,2 @@
+<!--index.wxml-->
+<calendar bind:change="dateChange" spot="{{['2020/8/6','2020/8/9']}}"></calendar>
