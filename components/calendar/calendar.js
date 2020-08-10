@@ -7,6 +7,10 @@ Component({
     spot: {
       type: Array,
       value: []
+    },
+    defaultTime: {
+      type: String,
+      value: ''
     }
   },
 
@@ -15,9 +19,7 @@ Component({
    */
   data: {
     dateList: [], //日历主体渲染数组
-    today: {}, //当天时间
     selectDay: {}, //选中时间
-    first: true
   },
 
   /**
@@ -26,8 +28,8 @@ Component({
   methods: {
     /**
      * 时间戳转化为年 月 日 时 分 秒
-     * time: 传入时间，可以被new Date()解析即可
-     * format：返回格式，支持自定义，但参数必须与formateArr里保持一致,为空的话则显示多久前
+     * time: 需要被格式化的时间，可以被new Date()解析即可
+     * format：格式化之后返回的格式，年月日时分秒分别为Y, M, D, h, m, s，这个参数不填的话则显示多久前
      */
     formatTime(time, format) {
       function formatNumber(n) {
@@ -102,6 +104,20 @@ Component({
       const month = parseInt(arr[1])
       this.setMonth(year, month)
     },
+    //上月切换按钮点击
+    lastMonth() {
+      const lastMonth = new Date(this.data.selectDay.year, this.data.selectDay.month - 2)
+      const year = lastMonth.getFullYear()
+      const month = lastMonth.getMonth() + 1
+      this.setMonth(year, month)
+    },
+    //下月切换按钮点击
+    nextMonth() {
+      const nextMonth = new Date(this.data.selectDay.year, this.data.selectDay.month)
+      const year = nextMonth.getFullYear()
+      const month = nextMonth.getMonth() + 1
+      this.setMonth(year, month)
+    },
     //设置月份
     setMonth(setYear, setMonth, setDay) {
       if (this.data.selectDay.year !== setYear || this.data.selectDay.month !== setMonth) {
@@ -120,11 +136,8 @@ Component({
         }
         this.setData(data)
         this.dateInit(setYear, setMonth)
-        if (this.data.first) {
-          this.data.first = false
-        } else {
-          this.triggerEvent("change", this.data.selectDay)
-        }
+        this.setSpot()
+        this.triggerEvent("change", this.data.selectDay)
       }
     },
     //展开收起
@@ -152,7 +165,7 @@ Component({
         dateList: this.data.dateList
       })
     },
-    //日历渲染方法
+    //日历主体的渲染方法
     dateInit(setYear = this.data.selectDay.year, setMonth = this.data.selectDay.month) {
       let dateList = []; //需要遍历的日历数组数据
       let now = new Date(setYear, setMonth - 1)//当前月份的1号
@@ -194,7 +207,7 @@ Component({
       })
     },
     //一天被点击时
-    lookHuoDong(e) {
+    selectChange(e) {
       const year = e.currentTarget.dataset.year
       const month = e.currentTarget.dataset.month
       const day = e.currentTarget.dataset.day
@@ -213,40 +226,18 @@ Component({
         })
         this.triggerEvent("change", this.data.selectDay)
       }
-    },
-    /**
-     * 上月切换
-     */
-    lastMonth() {
-      const lastMonth = new Date(this.data.selectDay.year, this.data.selectDay.month - 2)
-      const year = lastMonth.getFullYear()
-      const month = lastMonth.getMonth() + 1
-      this.setMonth(year, month)
-    },
-    /**
-     * 下月切换
-     */
-    nextMonth() {
-      const nextMonth = new Date(this.data.selectDay.year, this.data.selectDay.month)
-      const year = nextMonth.getFullYear()
-      const month = nextMonth.getMonth() + 1
-      this.setMonth(year, month)
-    },
+    }
   },
   lifetimes: {
     attached() {
-      let now = new Date();
-      let today = {
+      let now = this.data.defaultTime ? new Date(this.data.defaultTime) : new Date()
+      let selectDay = {
         year: now.getFullYear(),
         month: now.getMonth() + 1,
         day: now.getDate(),
         dateString: this.formatTime(now, "Y-M-D")
       }
-      this.setData({
-        today: today
-      })
-      this.setMonth(today.year, today.month, today.day)
-      this.setSpot()
+      this.setMonth(selectDay.year, selectDay.month, selectDay.day)
     }
   },
   observers: {
