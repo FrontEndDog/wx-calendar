@@ -132,11 +132,16 @@
 
 .calendar .calendar-main {
   padding: 30rpx 25rpx;
-  transition: height 0.3s;
-  align-content: flex-start;
-  overflow: hidden;
 }
+.calendar .calendar-main .date-group{
+  transition: all 0.3s;
+  overflow: hidden;
 
+}
+.calendar .calendar-main .date-transform{
+  transition: all 0.3s;
+
+}
 .calendar .calendar-main .day {
   position: relative;
   width: 100rpx;

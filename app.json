@@ -5,7 +5,7 @@
   "window":{
     "backgroundTextStyle":"light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "日历组件Demo",
+    "navigationBarTitleText": "日历组件演示",
     "navigationBarTextStyle":"black"
   },
   "style": "v2",
