@@ -1,39 +1,4 @@
 /* components/calendar/calendar.wxss */
-@font-face {
-  font-family: "iconfont";
-  src: url('iconfont.eot?t=1596614903470');
-  /* IE9 */
-  src: url('iconfont.eot?t=1596614903470#iefix') format('embedded-opentype'),
-    /* IE6-IE8 */
-    url('data:application/x-font-woff2;charset=utf-8;base64,d09GMgABAAAAAAL8AAsAAAAABxQAAAKvAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHEIGVgCDHAqBVIFEATYCJAMQCwoABCAFhG0HQhswBsgekiRFQgQU8AMAmmCIh3/HXu9L8hFVWwXoyALpqqoqwAEfD6g66abEPBux/13TPwBUeZ0lAldI75LS0ctlzLY8NwVk3NQm5Co3lqhaWPE+z+X0pi+Q1bez3MZatCYtPuoFGAcU4F7UiyIroBPkltpFHBi88q89JtA0p1jEYe/wNMQryKpAPHbYMMT3CooStetCdeZgEd9U1NPX9ADgQf8+/kFlxJNUMrLx5LpHhPaf+GUsavP/JpxJQpHgHq8gYx0oxO1s41yUiMQoTWOibQN1dYmf+Dn0MhYO2zgfttC/PEKSiSrS3QabXjPzE3ON4GdII/FrrEsGhPjr/dYGcOyzM56gg6PM1BXvcbZIxY7zzRyS4znJs/m2VmjuRNq9edF1kcx9FbW85/nRgbXX6s5q/AX+vsGh/kBhUUHAYszwFx4acaAA6l7k9bgjo8Vbue4acDcbCqFqcBru+htf4l/I4EnzzQAa8lT+kNoAyG/TJuTdyDcsG+NB4r05rfm73irgx/jRrw4XMB+gyga24dQGHCqlg8RKyZ3cWuWLEWhFQlMTmOwwFLrCPwH3E+omB/I1sy2yunmysOuoaNlEVd0Omtb0HW8ZYaJEaWDVnoPQd4ek6zuyvkeysE+omPpCVT+i0HQaWRe2LIYjsYsRzImIrEvIIagKZQmeaHoniW1Owqzr0NIsYbqjjCpKy4ftPqIQdsUWfd5WyTlFlKky6nWeI5KkIo2pTiLwUjvnWmNZGZ37UKmgypDoAENgHCFCrJYgDgKVgsrxXOLo+5MImzkSjK3oFuazCEbnmB6pUKocQPZ5FZDuV97RzbOpxHEUQjEqGdLrzCMkEhWizc9zIgRcKfuBmqZRGR1Fod7S5/3yH56AJnJDiRQ5SlRU3yhUlcRoMStek/ASdUgSAAA=') format('woff2'),
-    url('iconfont.woff?t=1596614903470') format('woff'),
-    url('iconfont.ttf?t=1596614903470') format('truetype'),
-    /* chrome, firefox, opera, Safari, Android, iOS 4.2+ */
-    url('iconfont.svg?t=1596614903470#iconfont') format('svg');
-  /* iOS 4.1- */
-}
-
-.iconfont {
-  font-family: "iconfont" !important;
-  font-style: normal;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  line-height: 1;
-  font-weight: normal;
-}
-
-.icon-unfold:before {
-  content: "\e661";
-}
-
-.icon-fold:before {
-  content: "\e6de";
-}
-
-.icon-playfill:before {
-  content: "\e74f";
-}
-
 .flex {
   display: flex;
   justify-content: space-between;
@@ -103,10 +68,23 @@
   margin-right: 20rpx;
 }
 
-.calendar .title .icon {
-  padding: 0 16rpx;
-  font-size: 32rpx;
-  color: #999;
+.calendar .title .last-icon {
+  width: 0;
+  height: 0;
+  border-right: 24rpx solid #999;
+  border-top: 12rpx solid transparent;
+  border-bottom: 12rpx solid transparent;
+  margin-left: 10rpx;
+
+}
+
+.calendar .title .next-icon {
+  width: 0;
+  height: 0;
+  border-left: 24rpx solid #999;
+  border-top: 12rpx solid transparent;
+  border-bottom: 12rpx solid transparent;
+  margin-left: 40rpx;
 }
 
 .calendar .title .open {
@@ -133,15 +111,18 @@
 .calendar .calendar-main {
   padding: 30rpx 25rpx;
 }
-.calendar .calendar-main .date-group{
+
+.calendar .calendar-main .date-group {
   transition: all 0.3s;
   overflow: hidden;
 
 }
-.calendar .calendar-main .date-transform{
+
+.calendar .calendar-main .date-transform {
   transition: all 0.3s;
 
 }
+
 .calendar .calendar-main .day {
   position: relative;
   width: 100rpx;

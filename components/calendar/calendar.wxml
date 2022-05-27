@@ -3,12 +3,8 @@
 	<view class="title flex">
 		<view class="flex">
 			<picker value="{{selectDay.year+'-'+(selectDay.month+1)}}" bindchange="editMonth" mode="date" fields="month" class="year-month">{{selectDay.year}}.{{selectDay.month>8?selectDay.month+1:"0"+(selectDay.month+1)}}</picker>
-			<view class="icon" bindtap="lastMonth" style="transform:rotate(180deg);">
-				<view class="iconfont icon-playfill"></view>
-			</view>
-			<view class="icon" bindtap="nextMonth">
-				<view class="iconfont icon-playfill"></view>
-			</view>
+			<view class="last-icon" bindtap="lastMonth"> </view>
+			<view class="next-icon" bindtap="nextMonth"> </view>
 		</view>
 		<view catchtap="openChange" class="flex open">
 			<view>{{open?"收起":"展开"}}</view>
