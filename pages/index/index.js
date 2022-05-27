@@ -9,7 +9,6 @@ Page({
     spot: ['2022/5/6', '2022/5/9', '2022/5/20', '2022/5/12', '2022/6/1']
   },
   dateChange(e) {
-    console.log("选中日期变了,现在日期是", e.detail.dateString)
     this.setData({
       dateString: e.detail.dateString
     })

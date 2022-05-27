@@ -1,3 +1,31 @@
 <!--index.wxml-->
-<calendar bind:dateChange="dateChange" spot="{{spot}}" defaultDate="2022/5/25"></calendar>
+<calendar defaultDate="2022/5/25" spot="{{spot}}" bind:dateChange="dateChange"></calendar>
 <view class="date-string">当前选中的日期是：{{dateString}}</view>
+
+<view class="doc-box">
+  <view class="title">属性</view>
+
+  <view class="prpos">defaultDate</view>
+  <view class="explain">日历默认选中的时间</view>
+  <view class="type">String | Date | Number（可以被dayjs解析的格式即可）</view>
+  <view class="default">今天</view>
+
+  <view class="prpos">spot</view>
+  <view class="explain">底部需要展示小圆点的日期数组</view>
+  <view class="type">Array{{'<'}}String | Date | Number{{'>'}}</view>
+  <view class="default">[]</view>
+
+  <view class="title">事件</view>
+
+  <view class="event">bind:dateChange</view>
+  <view class="explain">选中的日期变化时触发</view>
+  <view class="callback">event.detail:{ date, month, year, dateString }</view>
+
+  <view class="event">bind:monthChange</view>
+  <view class="explain">选中的月份变化时触发</view>
+  <view class="callback">event.detail:{ date, month, year, dateString }</view>
+
+  <view class="event">bind:yearChange</view>
+  <view class="explain">选中的年份变化时触发</view>
+  <view class="callback">event.detail:{ date, month, year, dateString }</view>
+</view>

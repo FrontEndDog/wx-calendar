@@ -5,23 +5,15 @@
   align-items: center;
 }
 
-.direction-column {
-  flex-direction: column;
-}
-
-.flex1 {
-  flex: 1;
+.flex-start {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
 }
 
 .flex-center {
   display: flex;
   justify-content: center;
-  align-items: center;
-}
-
-.flex-start {
-  display: flex;
-  justify-content: flex-start;
   align-items: center;
 }
 
@@ -35,6 +27,10 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
+}
+
+.flex1 {
+  flex: 1;
 }
 
 .flex-wrap {
@@ -144,8 +140,7 @@
   border-radius: 50%;
   text-align: center;
   color: #fff;
-  background: linear-gradient(-60deg, #0FDAC5, #1BC7B0);
-  box-shadow: 0px 5px 16px 0px #C6F3ED;
+  background: #409eff;
   margin: 0 auto;
 }
 
@@ -156,7 +151,7 @@
 .calendar .calendar-main .day .spot {
   width: 8rpx;
   height: 8rpx;
-  background-color: #1DCDB8;
+  background-color: #409eff;
   border-radius: 50%;
   margin: 6rpx auto 0;
 }
