@@ -1,3 +1,3 @@
 <!--index.wxml-->
 <calendar bind:dateChange="dateChange" spot="{{spot}}" defaultDate="2022/5/25"></calendar>
-<view class="date-string">当前选中的日期是：{{dateString}}</view> 
+<view class="date-string">当前选中的日期是：{{dateString}}</view>

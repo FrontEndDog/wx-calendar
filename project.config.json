@@ -30,7 +30,7 @@
       "disablePlugins": [],
       "outputPath": ""
     },
-    "useIsolateContext": false,
+    "useIsolateContext": true,
     "userConfirmedBundleSwitch": false,
     "packNpmManually": false,
     "packNpmRelationList": [],
@@ -42,8 +42,8 @@
     "ignoreUploadUnusedFiles": true
   },
   "compileType": "miniprogram",
-  "libVersion": "2.24.2",
-  "appid": "wxb82749a9f542178b",
+  "libVersion": "2.24.3",
+  "appid": "wx85282dd29f3a194a",
   "projectname": "wx-calendar",
   "debugOptions": {
     "hidedInDevtools": []
