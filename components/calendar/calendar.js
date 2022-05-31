@@ -5,6 +5,7 @@ Component({
    * 组件的属性列表
    */
   properties: {
+    //底下需要展示小圆点的日期数组
     spot: {
       type: Array,
       value: []
@@ -46,7 +47,7 @@ Component({
       const nextMonth = dayjs(new Date(this.data.selectDay.year, this.data.selectDay.month + 1))
       this.setDate(nextMonth.year(), nextMonth.month())
     },
-    //设置日期
+    //设置选中日期
     setDate(paramYear, paramMonth, paramDate) {
       const date = Math.min(dayjs([paramYear, paramMonth + 1]).daysInMonth(), this.data.selectDay.date)
       const time = dayjs([paramYear, paramMonth + 1, paramDate || date])
@@ -122,7 +123,7 @@ Component({
       })
     },
 
-    //一天被点击时
+    //某一天被点击时
     selectChange(e) {
       const year = e.currentTarget.dataset.year
       const month = e.currentTarget.dataset.month
@@ -130,12 +131,14 @@ Component({
       this.setDate(year, month, date)
     }
   },
+  //组件生命周期
   lifetimes: {
     attached() {
       let now = this.data.defaultDate ? dayjs(this.data.defaultDate) : dayjs()
       this.setDate(now.year(), now.month(), now.date())
     }
   },
+  //监听参数变化
   observers: {
     spot: function () {
       this.dateListInit()
