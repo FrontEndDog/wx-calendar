@@ -49,8 +49,8 @@ Component({
     },
     //设置选中日期
     setDate(paramYear, paramMonth, paramDate) {
-      const date = Math.min(dayjs([paramYear, paramMonth + 1]).daysInMonth(), this.data.selectDay.date)
-      const time = dayjs([paramYear, paramMonth + 1, paramDate || date])
+      const date = Math.min(dayjs(`${paramYear}-${paramMonth + 1}`).daysInMonth(), this.data.selectDay.date)
+      const time = dayjs(`${paramYear}-${paramMonth + 1}-${paramDate || date}`)
       const selectDay = {
         year: paramYear,
         month: paramMonth,
@@ -58,9 +58,9 @@ Component({
         dateString: time.format("YYYY-MM-DD"),
       }
       //设置收起时的日历主体偏移量
-      let dateListStart = dayjs([paramYear, paramMonth + 1]).day(0)
+      let dateListStart = dayjs(`${paramYear}-${paramMonth + 1}`).day(0)
       this.setData({
-        transform: dayjs([paramYear, paramMonth + 1, paramDate || date]).day(0).diff(dateListStart, 'week')
+        transform: dayjs(`${paramYear}-${paramMonth + 1}-${paramDate || date}`).day(0).diff(dateListStart, 'week')
       })
       if (paramYear !== this.data.selectDay.year) {
         this.setData({
@@ -102,8 +102,8 @@ Component({
     //日历主体的渲染方法
     dateListInit(paramYear = this.data.selectDay.year, paramMonth = this.data.selectDay.month) {
       let dateList = []; //需要遍历的日历数组数据
-      let startDate = dayjs([paramYear, paramMonth + 1]).day(0) //日历渲染开始日期
-      let endDate = dayjs([paramYear, paramMonth + 1]).endOf('month').day(6) //日历主体渲染结束日期
+      let startDate = dayjs(`${paramYear}-${paramMonth + 1}`).day(0) //日历渲染开始日期
+      let endDate = dayjs(`${paramYear}-${paramMonth + 1}`).endOf('month').day(6) //日历主体渲染结束日期
       const timeArr = this.data.spot.map(item => {
         return dayjs(item).format('YYYY-MM-DD')
       }) //底部小圆点需要展示的数组
