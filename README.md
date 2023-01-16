@@ -5,7 +5,7 @@
 
 #### 软件架构
 ## 一、演示地址
-![demo.png](https://gitee.com/GaoWeiQiang1996/wx-calendar/raw/master/demo.png)
+![demo.jpg](https://gitee.com/GaoWeiQiang1996/wx-calendar/raw/master/demo.jpg)
 ## 二、属性
 |参数|说明|类型|默认值|
 |--|--|--|--|
