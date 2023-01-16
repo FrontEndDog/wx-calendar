@@ -10,7 +10,7 @@
 |参数|说明|类型|默认值|
 |--|--|--|--|
 |defaultDate|日历默认选中的时间|String \| Date \| Number（可以被dayjs解析的格式即可）|今天|
-|spot|底部需要展示小圆点的日期数组|Array<String \| Date \| Number|[]|
+|spot|底部需要展示小圆点的日期数组|Array<String \| Date \| Number>|[]|
 
 ## 三、事件
 |事件|说明|回调参数|
