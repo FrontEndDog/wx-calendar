@@ -4,34 +4,17 @@
 微信小程序日历组件
 
 #### 软件架构
-软件架构说明
+## 一、演示地址
+![demo.png](https://gitee.com/GaoWeiQiang1996/wx-calendar/raw/master/demo.png)
+## 二、属性
+|参数|说明|类型|默认值|
+|--|--|--|--|
+|defaultDate|日历默认选中的时间|String \| Date \| Number（可以被dayjs解析的格式即可）|今天|
+|spot|底部需要展示小圆点的日期数组|Array<String \| Date \| Number|[]|
 
-
-#### 安装教程
-
-1.  xxxx
-2.  xxxx
-3.  xxxx
-
-#### 使用说明
-
-1.  xxxx
-2.  xxxx
-3.  xxxx
-
-#### 参与贡献
-
-1.  Fork 本仓库
-2.  新建 Feat_xxx 分支
-3.  提交代码
-4.  新建 Pull Request
-
-
-#### 码云特技
-
-1.  使用 Readme\_XXX.md 来支持不同的语言，例如 Readme\_en.md, Readme\_zh.md
-2.  码云官方博客 [blog.gitee.com](https://blog.gitee.com)
-3.  你可以 [https://gitee.com/explore](https://gitee.com/explore) 这个地址来了解码云上的优秀开源项目
-4.  [GVP](https://gitee.com/gvp) 全称是码云最有价值开源项目，是码云综合评定出的优秀开源项目
-5.  码云官方提供的使用手册 [https://gitee.com/help](https://gitee.com/help)
-6.  码云封面人物是一档用来展示码云会员风采的栏目 [https://gitee.com/gitee-stars/](https://gitee.com/gitee-stars/)
+## 三、事件
+|事件|说明|回调参数|
+|--|--|--|
+|bind:dateChange|选中的日期变化时触发|event.detail:{ date, month, year, dateString }|
+|bind:monthChange|选中的月份变化时触发|event.detail:{ date, month, year, dateString }|
+|bind:yearChange|选中的年份变化时触发|event.detail:{ date, month, year, dateString }|
